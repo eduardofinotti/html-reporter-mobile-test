@@ -1,4 +1,5 @@
 const prettyMs = require('pretty-ms');
+const percent = require('percent');
 
 module.exports = {
 
