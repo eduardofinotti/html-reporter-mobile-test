@@ -9,6 +9,7 @@
   "author": "Eduardo Finotti",
   "license": "ISC",
   "devDependencies": {
+    "percent": "^2.0.0",
     "pretty-ms": "^4.0.0"
   },
   "repository": {
@@ -18,5 +19,6 @@
   "bugs": {
     "url": "https://github.com/eduardofinotti/html-reporter-mobile-test/issues"
   },
-  "homepage": "https://github.com/eduardofinotti/html-reporter-mobile-test#readme"
+  "homepage": "https://github.com/eduardofinotti/html-reporter-mobile-test#readme",
+  "dependencies": {}
 }

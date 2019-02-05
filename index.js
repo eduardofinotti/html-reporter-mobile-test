@@ -37,7 +37,10 @@ module.exports = {
         +'0;">Results</h2></div>';
     },
 
-    makeHtmlFooter(bannerFooter, testPassed, testFailed, totalDuration, duration){
+    makeHtmlFooter(testPassed, testFailed, totalDuration, duration){
+
+        var perSuccsess = percent.calc(testPassed, (testFailed+testPassed), 0);
+        var perFail = percent.calc(testFailed, (testFailed+testPassed), 0);
 
         return '<div class="w3-container" style="box-sizing: inherit;padding: 0.01em 16px;"> <h2 style="box-sizing: inherit;font-size: '
         +'30px;font-family: &quot;Segoe UI&quot;,Arial,sans-serif;font-weight: 400;margin: 10px 0;">Resume</h2> <div align="center" '
@@ -69,10 +72,36 @@ module.exports = {
         +'16px;color: #fff!important;background-color: #2196F3!important;"> <h4 style="display: inline-block;box-sizing: inherit;font-size: '
         +'20px;font-family: &quot;Segoe UI&quot;,Arial,sans-serif;font-weight: 400;margin: 10px 0;">Tests Time</h4> </header> '
         +'<div class="w3-container" style="box-sizing: inherit;padding: 0.01em 16px;"> <p style="display: inline-block;font-weight: '
-        +'bold;box-sizing: inherit;">'+prettyMs(duration, {verbose: true})+'</p> </div> </div></div><br style="box-sizing: inherit;"><br '
-        +'style="box-sizing: inherit;"><img src="'+bannerFooter+'" '
-        +'width="1000" height="60" style="box-sizing: inherit;border-style: none;vertical-align: middle;"></body></html>'
+        +'bold;box-sizing: inherit;">'+prettyMs(duration, {verbose: true})+'</p> </div> </div></div><br '
+        +'style="box-sizing: inherit;">'
+ 
+        //statistic
+        +'<div class="w3-container" style="box-sizing: inherit;padding: 0.01em 16px;"> '
+
+        +'<h2 style="box-sizing: inherit;font-size: '
+        +'30px;font-family: &quot;Segoe UI&quot;,Arial,sans-serif;font-weight: 400;margin: 10px 0;">Statistic</h2>'
+
+        +'<p style="box-sizing:border-box;">Success</p> '
+
+        +'<div class="container" style="box-sizing:border-box;width:1000px;background-color:'
+        +'#ddd;"> <div class="skills success" style="box-sizing:border-box;text-align:right;padding:10px;color:white;width:'+perSuccsess+'%;'
+        +'background-color:#4CAF50;">'+perSuccsess+'%</div> </div> '
+        
+        +'<p style="box-sizing:border-box;">Fail</p> '
+        
+        +'<div class="container" style="box-sizing:border-box;width:1000px;background-color:#ddd;"> '
+        +'<div class="skills fail" style="box-sizing:border-box;text-align:right;padding:10px;color:white;width:'
+        +perFail+'%;background-color:#f44336;">'+perFail+'%</div> </div> '
+        +'<br style="box-sizing: inherit;"><br style="box-sizing: inherit;">'
+        
+        +'</div>'
+        //statistic
+        
+        +'<img src="https://uploaddeimagens.com.br/images/001/849/204/original/AT-foot2.jpeg?1548162426" '
+        +'width="1000" height="60" style="box-sizing: inherit;border-style: none;vertical-align: middle;">'
+        +'</body></html>'
     },
+
 
     makeHtmlTestFail(title, err){
 
