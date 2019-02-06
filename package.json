@@ -1,6 +1,6 @@
 {
   "name": "html-reporter-mobile-test",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "description": "Maker HTML reporter to mobile tests",
   "main": "index.js",
   "scripts": {
@@ -20,5 +20,20 @@
     "url": "https://github.com/eduardofinotti/html-reporter-mobile-test/issues"
   },
   "homepage": "https://github.com/eduardofinotti/html-reporter-mobile-test#readme",
-  "dependencies": {}
+  "dependencies": {},
+  
+  "keywords": [
+    "test",
+    "report",
+    "testing",
+    "test-report",
+    "appium",
+    "mobile",
+    "web",
+    "html",
+    "maker",
+    "codeceptjs",
+    "email"
+  ]
+  
 }
