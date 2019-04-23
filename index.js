@@ -3,7 +3,7 @@ const percent = require('percent');
 
 module.exports = {
 
-    makeHtmlHeader(bannerHeader, icone, platform, date, device){
+    makeHtmlHeader(bannerHeader, icon, platform, date, device){
 
         return '<!DOCTYPE html><html style="box-sizing: inherit;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;overflow-x: '
         +'hidden;font-family: Verdana,sans-serif;font-size: 15px;line-height: 1.5;"><meta name="viewport" content="width=device-width, '
@@ -16,7 +16,7 @@ module.exports = {
         +'20px 0 rgba(0,0,0,0.19); border: 1px solid #b7b7c0"> <header class="w3-container w3-blue" style="box-sizing: inherit;display: '
         +'block;padding: 0.01em 16px;color: #fff!important;background-color: #2196F3!important;"> <h4 style="display: inline-block;box-sizing: '
         +'inherit;font-size: 20px;font-family: &quot;Segoe UI&quot;,Arial,sans-serif;font-weight: 400;margin: 10px 0;">Plataforma</h4> </header> '
-        +'<div class="w3-container" style="box-sizing: inherit;padding: 0.01em 16px;"> <img src="'+icone+'" width="30" height="30" style="display: '
+        +'<div class="w3-container" style="box-sizing: inherit;padding: 0.01em 16px;"> <img src="'+icon+'" width="30" height="30" style="display: '
         +'inline-block;box-sizing: inherit;border-style: none;vertical-align: middle;"> <p style="display: inline-block;font-weight: bold;'
         +'box-sizing: inherit;">'+platform+'</p> </div> </div> <div class="w3-card-4" style="width: 155px;display: inline-block;border: '
         +'1px solid #b7b7c0 !important;box-sizing: inherit;box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);"> <header '
@@ -38,12 +38,12 @@ module.exports = {
         +'0;">Results</h2></div>';
     },
 
-    makeHtmlFooter(testPassed, testFailed, totalDuration, duration){
+    makeHtmlFooter(testPassed, testFailed, totalDuration, duration, bannerHeader){
 
         var perSuccsess = percent.calc(testPassed, (testFailed+testPassed), 0);
         var perFail = percent.calc(testFailed, (testFailed+testPassed), 0);
 
-        return '<div class="w3-container" style="box-sizing: inherit;padding: 0.01em 16px;"> <h2 style="box-sizing: inherit;font-size: '
+        var txt = '<div class="w3-container" style="box-sizing: inherit;padding: 0.01em 16px;"> <h2 style="box-sizing: inherit;font-size: '
         +'30px;font-family: &quot;Segoe UI&quot;,Arial,sans-serif;font-weight: 400;margin: 10px 0;">Resume</h2> <div align="center" '
         +'class="w3-card-4" style="width: 150px;display: inline-block;box-sizing: inherit;box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px '
         +'0 rgba(0,0,0,0.19);border: 1px solid #b7b7c0"> <header class="w3-container w3-blue" style="box-sizing: inherit;display: block;padding: '
@@ -96,21 +96,30 @@ module.exports = {
         +'<br style="box-sizing: inherit;"><br style="box-sizing: inherit;">'
         
         +'</div>'
+
         //statistic
         
-        +'<img src="https://uploaddeimagens.com.br/images/001/849/204/original/AT-foot2.jpeg?1548162426" '
-        +'width="1000" height="60" style="box-sizing: inherit;border-style: none;vertical-align: middle;">'
-        +'</body></html>'
+        +'<img src="'+bannerHeader+'" '
+        +'width="1000" height="60" style="box-sizing: inherit;border-style: none;vertical-align: middle;"> </body></html>'
+
+       // txt = txt +'</body></html>'
+
+        return txt;
     },
 
 
-    makeHtmlTestFail(title, err){
+    makeHtmlTestFail(title, method, err, imageLink){
 
         return '<div class="w3-container" style="box-sizing: inherit;padding: 0.01em 16px;"><div class="w3-panel w3-leftbar w3-border-red '
         +'w3-pale-red" style="box-sizing: inherit;padding: 0.01em 16px;margin-top: 16px;margin-bottom: 16px;border-left: 6px solid '
         +'#ccc!important;color: #000!important;background-color: #ffdddd!important;border-color: #f44336!important;"> <p style="display: '
         +'inline-block;box-sizing: inherit;">'+ title+'</p> <p align="left" style="font-weight: bold;box-sizing: inherit;">Error: '
-        +'<i style="box-sizing: inherit;">'+err+'</i></p> </div> </div>';
+        +'<i style="box-sizing: inherit;">'+err+'</i></p> '
+        
+        +'<p align="left" style="font-weight: bold;box-sizing: inherit;">Method: '
+        +'<i style="box-sizing: inherit;">'+method+'</i></p> '
+
+        +'<img  width="200" height="350" style="margin-bottom:16px" src="'+ imageLink +'">  </div> </div>';
     },
 
     makeHtmlTestSuccess(title){
