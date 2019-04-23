@@ -16,8 +16,8 @@ Try:
 const htmlMaker = require('html-reporter-mobile-test');
 var html=null;
 
-html = html + htmlMaker.makeHtmlHeader(icon, 'iOS', '23/10/2019', 'iPhone 7');
-html = html + htmlMaker.makeHtmlFooter(4, 2, '3 minutes', '2 minutes');
+html = html + htmlMaker.makeHtmlHeader(bannerHeader, icon, 'iOS', '23/10/2019', 'iPhone 7');
+html = html + htmlMaker.makeHtmlFooter("https://cdn.icon-icons.png", 4, 2, '3 minutes', '2 minutes');
 ```
 
 Now, with `htmlMaker` you can use some functions:
@@ -29,7 +29,7 @@ Now, with `htmlMaker` you can use some functions:
 - `makeHtmlFeature(suite)`
 
 
-### `makeHtmlHeader(icon, platform, date, device)`
+### `makeHtmlHeader(bannerHeader, icon, platform, date, device)`
 
 > Create header of html reporter.
 
@@ -50,7 +50,7 @@ html = html + htmlMaker.makeHtmlHeader('https://img.icons8.com/metro/1600/mac-os
 Returns a html.
 
 
-### `makeHtmlFooter(testPassed, testFailed, totalDuration, duration)`
+### `makeHtmlFooter(testPassed, testFailed, totalDuration, duration, bannerFooter)`
 
 > Create footer of html reporter.
 
@@ -65,26 +65,28 @@ Returns a html.
 #### Example
 
 ```js
-html = html + htmlMaker.makeHtmlFooter('https://img.icons8.com/metro/1600/mac-os.png', 5, 4, '5 minutes', '3 minutes');
+html = html + htmlMaker.makeHtmlFooter('https://img.icons8.com/metro/1600/mac-os.png', 5, 4, '5 minutes', '3 minutes', 'https://img.icons8.com/metro/1600/mac-os.png');
 ```
 
 Returns a html.
 
-### `makeHtmlTestFail(title, err)`
+### `makeHtmlTestFail(title, method, err, imageLink)`
 
 > Create html when test fail.
 
 #### Parameters
 
 - `title` {* String *}: Name of test.
+- `method` {* String *}: Name of test.
 - `err` {* String *}: Description off fail test.
+- `imageLink` {* String *}: Print screen error.
 
 Returns a html.
 
 #### Example
 
 ```js
-html = html + htmlMaker.makeHtmlTestFail('Login com user an password', 'Timeout');
+html = html + htmlMaker.makeHtmlTestFail('Login com user an password', 'loginuaser()', 'Timeout', 'image.png');
 ```
 
 ### `makeHtmlTestSuccess(title)`
@@ -121,8 +123,9 @@ html = html + htmlMaker.makeHtmlFeature('Login';
 
 ## Final result
 
-https://uploaddeimagens.com.br/images/001/874/614/original/Screen_Shot_2019-02-04_at_09.01.08.png?1549278244
-https://uploaddeimagens.com.br/images/001/874/616/original/Screen_Shot_2019-02-04_at_09.01.22.png?1549278278
+https://uploaddeimagens.com.br/images/002/057/974/original/Screen_Shot_2019-04-03_at_19.00.30.png?1556034328
+https://uploaddeimagens.com.br/images/002/057/979/original/Screen_Shot_2019-04-03_at_19.00.43.png?1556034383
+https://uploaddeimagens.com.br/images/002/057/980/original/Screen_Shot_2019-04-03_at_19.00.52.png?1556034409
 
 ## License
 
