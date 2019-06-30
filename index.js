@@ -38,7 +38,7 @@ module.exports = {
         +'0;">Results</h2></div>';
     },
 
-    makeHtmlFooter(testPassed, testFailed, totalDuration, duration, bannerHeader){
+    makeHtmlFooter(testPassed, testFailed, totalDuration, duration, bannerFooter){
 
         var perSuccsess = percent.calc(testPassed, (testFailed+testPassed), 0);
         var perFail = percent.calc(testFailed, (testFailed+testPassed), 0);
@@ -99,7 +99,7 @@ module.exports = {
 
         //statistic
         
-        +'<img src="'+bannerHeader+'" '
+        +'<img src="'+bannerFooter+'" '
         +'width="1000" height="60" style="box-sizing: inherit;border-style: none;vertical-align: middle;"> </body></html>'
 
        // txt = txt +'</body></html>'
